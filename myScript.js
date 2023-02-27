@@ -1,25 +1,38 @@
-let playerSelection = (prompt("Rock, Paper or Scissors?")).toLowerCase();
+//get input from user and make it case-insensitive
+let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase();
 let computerSelection = getComputerChoice();
 
-
+//generate randow choice for computer
 function getComputerChoice(){
-    let choice = ["rock", "paper", "scissors"];
+    let choice = ["ROCK", "PAPER", "SCISSORS"];
     let i = Math.floor(Math.random()*3);
     return choice[i];
 }
 
+//set up logic for a round
 function playRound(playerSelection, computerSelection){
     if (playerSelection === computerSelection){
-        return "Draw";
+        console.log("Draw.");
+        return "draw";
     } 
     else if (
-        (playerSelection === "rock"  && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection ==="paper")
-        ){
-            return `You win! ${playerSelection} beats ${computerSelection}`;
+        (playerSelection === "ROCK"  && computerSelection === "SCISSORS") || (playerSelection === "PAPER" && computerSelection === "ROCK")){
+            console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+            return "win";
         }
-    return `You lose! ${computerSelection} beats ${playerSelection}`;
+    else if (
+        (playerSelection === "SCISSORS" && computerSelection ==="PAPER")
+    ){
+        console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
+        return "win";
+    }
+    console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+    return "lose";
 }
-console.log(playerSelection);
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+console.log(playerSelection, computerSelection);
+playRound(playerSelection,computerSelection);
+
+//5 round-game mechanic
+//make variables for playerScore and computerScore
+//max round is 5
+//if player reaches 3, winner.
