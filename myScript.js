@@ -1,4 +1,12 @@
 //get input from user and make it case-insensitive
+let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase();
+let computerSelection = getComputerChoice();
+//generate randow choice for computer
+function getComputerChoice(){
+    let choice = ["ROCK", "PAPER", "SCISSORS"];
+    let i = Math.floor(Math.random()*3);
+    return choice[i];
+}
 
 //set up logic for a round
 function playRound(playerSelection, computerSelection){
@@ -20,17 +28,6 @@ function playRound(playerSelection, computerSelection){
             console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
             return  "lose";
         }
-// let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase();
-// let computerSelection = getComputerChoice();//generate randow choice for computer
-function getPlayerChoice(){
-    prompt("Rock, Paper or Scissors?").toUpperCase();
-}
-
-function getComputerChoice(){
-    let choice = ["ROCK", "PAPER", "SCISSORS"];
-    let i = Math.floor(Math.random()*3);
-            return choice[i];
-}
         
         //5 round-game mechanic
         //make variables for playerScore and computerScore
