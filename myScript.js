@@ -24,8 +24,18 @@ function playRound(playerSelection, computerSelection){
         else {
             console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
             return  "lose";}
-        }
-        
+}
+
+function getWinner(playerScore, computerScore){
+    if (playerScore > computerScore){
+        console.log("You won the game!");
+    }
+    else if (playerScore < computerScore){
+        console.log("You lost the game!");
+    }
+    else
+        console.log("It's a draw!")
+}
 
 function game(){
     let playerScore = 0
@@ -33,16 +43,16 @@ function game(){
     for (let round = 1; round < 6; round++){
         let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase(); //get input from user and make it case-insensitive
         let computerSelection = getComputerChoice(); //generate random choice for computer
-            if  (playRound(playerSelection, computerSelection) === "win") {
+        console.log(`Round ${round}, Player: ${playerSelection}, Computer ${computerSelection}`)
+        let result = playRound(playerSelection,computerSelection);
+            if  (result=== "win") {
                 playerScore++;             
             }
-            else if (playRound(playerSelection, computerSelection) === "lose") {
+            else if (result === "lose") {
                 computerScore++;
             }
-        console.log(`Round ${round}, Player: ${playerSelection}, Computer ${computerSelection}`)
         console.log(`Score: ${playerScore}-${computerScore}`)
-                            }
+    }
+    getWinner(playerScore, computerScore);
 }
-
-// console.log(game());
-console.log(playRound())
+game();
