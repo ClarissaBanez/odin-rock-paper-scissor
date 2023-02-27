@@ -1,7 +1,3 @@
-//get input from user and make it case-insensitive
-let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase();
-let computerSelection = getComputerChoice();
-//generate randow choice for computer
 function getComputerChoice(){
     let choice = ["ROCK", "PAPER", "SCISSORS"];
     let i = Math.floor(Math.random()*3);
@@ -25,26 +21,28 @@ function playRound(playerSelection, computerSelection){
                 console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
                 return "win";
             }
+        else {
             console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-            return  "lose";
+            return  "lose";}
         }
         
-        //5 round-game mechanic
-        //make variables for playerScore and computerScore
-        //max round is 5
-        //if player reaches 3, winner.
-        //         function game(){
-            //             let playerScore = 0
-            //             let computerScore = 0
-            //             for (let round = 1; round < 6; round++){
-                //                 playRound()
-                //                 if  (playRound === "win") {
-                    //             playerScore++;             
-                    //         }
-                    //         else if (playRound === "lose") {
-                        //             computerScore++;
-                        //         }
-                        //         console.log(`Round ${round}, Player: ${playerScore}, Computer ${computerScore}`)
-                        //     }
-                        // }
-                        
+
+function game(){
+    let playerScore = 0
+    let computerScore = 0
+    for (let round = 1; round < 6; round++){
+        let playerSelection = (prompt("Rock, Paper or Scissors?")).toUpperCase(); //get input from user and make it case-insensitive
+        let computerSelection = getComputerChoice(); //generate random choice for computer
+            if  (playRound(playerSelection, computerSelection) === "win") {
+                playerScore++;             
+            }
+            else if (playRound(playerSelection, computerSelection) === "lose") {
+                computerScore++;
+            }
+        console.log(`Round ${round}, Player: ${playerSelection}, Computer ${computerSelection}`)
+        console.log(`Score: ${playerScore}-${computerScore}`)
+                            }
+}
+
+// console.log(game());
+console.log(playRound())
