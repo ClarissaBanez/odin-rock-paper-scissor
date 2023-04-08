@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    let choice = ["ROCK", "PAPER", "SCISSORS"];
+    let choice = ["rock", "paper", "scissors"];
     let i = Math.floor(Math.random() * 3);
     return choice[i];
 }
@@ -10,20 +10,21 @@ function getComputerChoice() {
 // }
 //set up logic for a round
 function playRound(e) {
-    let playerSelection = this.target.id;
+    let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
-    console.log(playerSelection, computerSelection);
+    
+    console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
     if (playerSelection === computerSelection) {
         console.log("Draw.");
         return "draw";
     }
     else if (
-        (playerSelection === "" && computerSelection === "SCISSORS") || (playerSelection === "PAPER" && computerSelection === "ROCK")) {
+        (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")) {
         console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
         return "win";
     }
     else if (
-        (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+        (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
         return "win";
