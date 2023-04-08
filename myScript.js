@@ -5,7 +5,7 @@ buttons.forEach(button => addEventListener('click', playRound))
 document.body.appendChild(results);
 
 function getComputerChoice() {
-let choice = ["rock", "paper", "scissors"];
+let choice = ["Rock", "Paper", "Scissors"];
     let i = Math.floor(Math.random() * 3);
     return choice[i];
 }
@@ -15,25 +15,29 @@ function playRound(e) {
     let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
     if (e.target.id === '') return;
+    results.innerText = ""
 
     console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
     if (playerSelection === computerSelection) {
-        results.innerText = "Round Results: Draw"
+        results.innerText = "It's a draw!"
         return "draw";
     }
     else if (
-        (playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "paper" && computerSelection === "rock")) {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+        (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock")) {
+        // console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+        results.innerText = `You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`
         return "win";
     }
     else if (
-        (playerSelection === "scissors" && computerSelection === "paper")
+        (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
-        console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
+        // console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
+        results.innerText = `You win! ${playerSelection} beat ${computerSelection.toLowerCase()}.`
         return "win";
     }
     else {
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+        // console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+        results.innerText = `You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`
         return "lose";
     }
 }
