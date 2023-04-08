@@ -1,8 +1,7 @@
-let buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
+const results = document.createElement('div');
 buttons.forEach(button => addEventListener('click', playRound))
 
-const results = document.createElement('div');
-results.innerText = "Round Results: "
 document.body.appendChild(results);
 
 function getComputerChoice() {
@@ -15,10 +14,11 @@ let choice = ["rock", "paper", "scissors"];
 function playRound(e) {
     let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
+    if (e.target.id === '') return;
 
     console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
     if (playerSelection === computerSelection) {
-        console.log("Draw.");
+        results.innerText = "Round Results: Draw"
         return "draw";
     }
     else if (
