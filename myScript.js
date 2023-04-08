@@ -1,11 +1,13 @@
 function getComputerChoice() {
-    let choice = ["ROCK", "PAPER", "SCISSORS"];
+    let choice = ["rock", "paper", "scissors"];
     let i = Math.floor(Math.random() * 3);
     return choice[i];
 }
 
 function getPlayerChoice() {
-    return prompt("Rock, Paper or Scissors?").toUpperCase(); //get input from user and make it case-insensitive
+    let rock = document.querySelector('#rock');
+    let paper = document.querySelector('#paper');
+    let scissors = document.querySelector('#scissors');
 }
 //set up logic for a round
 function playRound(playerSelection, computerSelection) {
