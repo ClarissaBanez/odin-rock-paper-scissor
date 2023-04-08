@@ -1,18 +1,21 @@
+let buttons = document.querySelectorAll('button');
+buttons.forEach(button => addEventListener('click', playRound))
+
+const results = document.createElement('div');
+results.innerText = "Round Results: "
+document.body.appendChild(results);
+
 function getComputerChoice() {
-    let choice = ["rock", "paper", "scissors"];
+let choice = ["rock", "paper", "scissors"];
     let i = Math.floor(Math.random() * 3);
     return choice[i];
 }
 
-// function getPlayerChoice() {
-    let buttons = document.querySelectorAll('button');
-    buttons.forEach(button => addEventListener('click', playRound))
-// }
 //set up logic for a round
 function playRound(e) {
     let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
-    
+
     console.log(`Player: ${playerSelection} Computer: ${computerSelection}`);
     if (playerSelection === computerSelection) {
         console.log("Draw.");
@@ -34,6 +37,7 @@ function playRound(e) {
         return "lose";
     }
 }
+
 
 function getWinner(playerScore, computerScore) {
     if (playerScore > computerScore) {
