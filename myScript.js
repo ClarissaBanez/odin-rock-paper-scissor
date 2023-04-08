@@ -1,26 +1,24 @@
 function getComputerChoice() {
-    let choice = ["rock", "paper", "scissors"];
+    let choice = ["ROCK", "PAPER", "SCISSORS"];
     let i = Math.floor(Math.random() * 3);
     return choice[i];
 }
 
-rock.addEventListener('click', getPlayerChoice);
-paper.addEventListener('click', getPlayerChoice);
-scissors.addEventListener('click', getPlayerChoice);
-
-function getPlayerChoice(e) {    
-    console.log(this.id);
-    return this.id;
-}
-
+// function getPlayerChoice() {
+    let buttons = document.querySelectorAll('button');
+    buttons.forEach(button => addEventListener('click', playRound))
+// }
 //set up logic for a round
-function playRound(playerSelection, computerSelection) {
+function playRound(e) {
+    let playerSelection = this.target.id;
+    let computerSelection = getComputerChoice()
+    console.log(playerSelection, computerSelection);
     if (playerSelection === computerSelection) {
         console.log("Draw.");
         return "draw";
     }
     else if (
-        (playerSelection === "ROCK" && computerSelection === "SCISSORS") || (playerSelection === "PAPER" && computerSelection === "ROCK")) {
+        (playerSelection === "" && computerSelection === "SCISSORS") || (playerSelection === "PAPER" && computerSelection === "ROCK")) {
         console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
         return "win";
     }
@@ -64,5 +62,4 @@ function game() {
         console.log(`Score: ${playerScore}-${computerScore}`)
     }
     getWinner(playerScore, computerScore);
-}
-game();
+};
