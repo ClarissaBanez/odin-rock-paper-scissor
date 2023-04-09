@@ -25,23 +25,25 @@ function playRound(e) {
     else if (
         (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Paper" && computerSelection === "Rock")) {
         // console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-        results.innerText = `You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`
+        results.innerText = `You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`;
         return "win";
     }
     else if (
         (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
-        // console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct
-        results.innerText = `You win! ${playerSelection} beat ${computerSelection.toLowerCase()}.`
+        // console.log(`You win! ${playerSelection} beat ${computerSelection}.`); //to make the it grammatically correct;
+        results.innerText = `You win! ${playerSelection} beat ${computerSelection.toLowerCase()}.`;
         return "win";
     }
     else {
         // console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-        results.innerText = `You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`
+        results.innerText = `You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`;
         return "lose";
     }
 }
+// let roundResult = playRound();
 
+// console.log(roundResult);
 
 function getWinner(playerScore, computerScore) {
     if (playerScore > computerScore) {
