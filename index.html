@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rock, Paper, Scissors Game</title>
-        <link rel="stylesheet" href="styles.css">
-    </head> 
-    <body>
-        <header>
-            <h1>Rock, Paper, Scissors!</h1>
-        </header>
-        <section class="scoreBoard">
-            <div class="scores">
-                <span class="scoreLabel">Player</span>
-                <span id="playerScore" class="score">0</span>
-                <span class="scoreLabel">Computer</span>
-                <span id="computerScore" class="score">0</span>
-            </div>
-        </section>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Rock, Paper, Scissors!</h1>
+    </header>
+    <main>
         <section class="playerInput">
-        <button value="rock" id="Rock">✊</button>
-        <button value="paper" id="Paper">🖐️</button>
-        <button value="scissors" id="Scissors">✌️</button>
+            <button value="rock" id="Rock">✊</button>
+            <button value="paper" id="Paper">🖐️</button>
+            <button value="scissors" id="Scissors">✌️</button>
         </section>
-        
         <section class="results">
             <p class="playerChoice">Player chooses Paper.</p>
             <p class="computerChoice">Computer chooses Paper.</p>
-            <p class="roundResult">You win! Rock beats paper!</p>
+            <p class="roundResult">You win! Rock beats scissors!</p>
         </section>
-        <section class="gameHistory">
-            <p>Round 1: <span class=roundResult>You win! Rock beats paper!</span></p>
-            <p>Round 2: <span class=roundResult>You win! Rock beats paper!</span></p>
-            <p>Round 3: <span class=roundResult>You win! Rock beats paper!</span></p>
-            <p>Round 4: <span class=roundResult>You win! Rock beats paper!</span></p>
-            <p>Round 5: <span class=roundResult>You win! Rock beats paper!</span></p>
+        <section class="scoreBoard">
+                <div>
+                    <span class="scoreLabel">Player</span>
+                    <span id="playerScore" class="score">0</span>
+                </div>
+                <div>
+                <span class="scoreLabel">Computer</span>
+                <span id="computerScore" class="score">0</span>
+                </div>
         </section>
 
-        <script src="myScript.js"></script>
-    </body>
+      
+        <section class="gameHistory">
+            <p class="roundResult" >Round 1: You win! Rock beats paper!</p>
+            <p class="roundResult">Round 2: You win! Rock beats paper!</p>
+            <p class="roundResult">Round 3: You win! Rock beats paper!</p>
+            <p class="roundResult">Round 4: You win! Rock beats paper!</p>
+            <p class="roundResult">Round 5: You win! Rock beats paper!</p>
+        </section>
+    </main>
+            <script src="myScript.js"></script>
+</body>
+
 </html>
