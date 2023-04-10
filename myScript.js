@@ -68,12 +68,12 @@ function checkWinner(playerScore, computerScore) {
     if (playerScore < computerScore && computerScore === 5) {
         gameResult.innerText = "You lost the game!";
         resetButton.style.display = "block";
-        button.style.display = "none";
+        buttons.forEach(button => button.style.display="none");
     }
     else if (playerScore > computerScore && playerScore === 5){
         gameResult.innerText = "You won the game!"
         resetButton.style.display = "block";
-        button.style.display = "none";
+        buttons.forEach(button => button.style.display="none");
     }
     return false;
 }
@@ -84,9 +84,13 @@ function gameReset(){
     round = 0;
     playerScoreBoard.innerText=`${playerScore}`;
     computerScoreBoard.innerText=`${computerScore}`;
+    playerChoice.innerText = "";
+    computerChoice.innerText = "";
     roundResult.innerText= "";
     gameResult.innerText = "";
     resetButton.style.display = "none";
+    buttons.forEach(button => button.style.display="block");
+    
 }
 function getComputerChoice() {
 let choice = ["Rock", "Paper", "Scissors"];

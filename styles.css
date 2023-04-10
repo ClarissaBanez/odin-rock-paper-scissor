@@ -33,6 +33,7 @@ main{
     border-radius: 50%;
     border: none;
     flex-shrink: 0;
+    display: block;
 }
 .scoreBoard{
     border: 1px solid antiquewhite;
