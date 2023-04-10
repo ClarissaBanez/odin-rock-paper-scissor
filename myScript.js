@@ -1,31 +1,38 @@
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
 const buttons = document.querySelectorAll('button');
-buttons.forEach(button => addEventListener('click', playRound))
+buttons.forEach(button => button.addEventListener('click', playRound))
 
 //set up logic for a round
 function playRound(e) {
+    round ++;
     let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
-    if (playerSelection === '') return;
-    result = getResult(playerSelection, computerSelection)
+    // if (!playerSelection) return;
+    result = getResult(playerSelection, computerSelection);
+    displayResults(playerSelection, computerSelection, resultString);
     scoreUpdate(result);
-
-    console.log(`${result.toUpperCase()}. Player chooses ${playerSelection}. Computer chooses ${computerSelection}.`);
-
 }
 
+function displayResults(playerSelection, computerSelection, resultString){
+    playerChoice = document.getElementById('playerChoice');
+    computerChoice = document.getElementById('computerChoice');
+    roundResult = document.getElementById('roundResult');
+
+    playerChoice.innerText = `Player chooses ${playerSelection}.`;
+    computerChoice.innerText = `Computer chooses ${computerSelection}.`;
+    roundResult.innerText += `Round ${round}: ${resultString}\n`;
+}
 function scoreUpdate(result){
     let playerScoreBoard = document.getElementById('playerScore');
     let computerScoreBoard = document.getElementById('computerScore');
     if (result === "win"){
         playerScore++;
-        console.log(playerScore, computerScore);
         playerScoreBoard.innerText=`${playerScore}`;
     }
     else if (result ==="lose"){
         computerScore++;
-        console.log(playerScore, computerScore)
         computerScoreBoard.innerText=`${computerScore}`;
     }
     return;
@@ -33,19 +40,24 @@ function scoreUpdate(result){
     
 function getResult(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
+        resultString = "It's a draw!";
         return "draw";
     }
     else if (
         (playerSelection === "Rock" && computerSelection === "Scissors") ||
-        (playerSelection === "Paper" && computerSelection === "Rock")){
+        (playerSelection === "Paper" && computerSelection === "Rock")
+        ){
+        resultString = `You win! ${playerSelection} beats ${computerSelection.toLowerCase()}.`
         return "win";
     }
     else if (
         (playerSelection === "Scissors" && 
         computerSelection === "Paper")){
+        resultString = `You win! ${playerSelection} beat ${computerSelection.toLowerCase()}.`
         return "win";
     }
-        return "lose";
+    resultString = `You lose! ${computerSelection} beats ${playerSelection.toLowerCase()}.`    
+    return "lose";
 }
 
 function getWinner(playerScore, computerScore) {

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 2px solid #ffc0cb; */
+    border: 2px solid #ffc0cb;
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
 }
@@ -68,17 +68,13 @@ button{
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    gap: 5px;
-    font-size: 1.75rem;
-}
-
-.roundResult{
-    flex-basis: 100%;
+    gap: 10px;
+    font-size: 2rem;
 }
 
 .gameHistory p{
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     font-size: 1.5rem;
 }
