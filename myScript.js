@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let round = 0;
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.playerInput');
 buttons.forEach(button => button.addEventListener('click', playRound))
 resetButton.addEventListener('click', gameReset)
 //set up logic for a round
@@ -84,7 +84,8 @@ function gameReset(){
     round = 0;
     playerScoreBoard.innerText=`${playerScore}`;
     computerScoreBoard.innerText=`${computerScore}`;
-    roundResult.innerText=""
+    roundResult.innerText= "";
+    gameResult.innerText = "";
     resetButton.style.display = "none";
 }
 function getComputerChoice() {
