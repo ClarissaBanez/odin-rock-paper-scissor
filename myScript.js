@@ -13,6 +13,7 @@ function playRound(e) {
     result = getResult(playerSelection, computerSelection);
     displayResults(playerSelection, computerSelection, resultString);
     scoreUpdate(result);
+    checkWinner(playerScore, computerScore);
 }
 
 function displayResults(playerSelection, computerSelection, resultString){
@@ -60,15 +61,14 @@ function getResult(playerSelection, computerSelection) {
     return "lose";
 }
 
-function getWinner(playerScore, computerScore) {
-    if (playerScore > computerScore) {
-        console.log("You won the game!");
-    }
-    else if (playerScore < computerScore) {
+function checkWinner(playerScore, computerScore) {
+    if (playerScore < computerScore && computerScore === 5) {
         console.log("You lost the game!");
     }
-    else
-        console.log("It's a draw!")
+    else if (playerScore > computerScore && playerScore === 5){
+        console.log("You won the game")
+    }
+    return;
 }
 
 function game() {
