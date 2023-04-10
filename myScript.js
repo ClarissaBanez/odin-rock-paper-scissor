@@ -3,7 +3,7 @@ let computerScore = 0;
 let round = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', playRound))
-
+resetButton.addEventListener('click', gameReset)
 //set up logic for a round
 function playRound(e) {
     round ++;
@@ -64,15 +64,16 @@ function getResult(playerSelection, computerSelection) {
 
 function checkWinner(playerScore, computerScore) {
     gameResult = document.getElementById('gameResult');
+    resetButton = document.getElementById('resetButton');
     if (playerScore < computerScore && computerScore === 5) {
         gameResult.innerText = "You lost the game!";
-        console.log("You lost the game!");
-        gameReset();
+        resetButton.style.display = "block";
+        button.style.display = "none";
     }
     else if (playerScore > computerScore && playerScore === 5){
         gameResult.innerText = "You won the game!"
-        console.log("You won the game");
-        gameReset();
+        resetButton.style.display = "block";
+        button.style.display = "none";
     }
     return false;
 }
@@ -81,9 +82,10 @@ function gameReset(){
     playerScore = 0;
     computerScore = 0;
     round = 0;
-    // playerScoreBoard.innerText=`${playerScore}`;
-    // computerScoreBoard.innerText=`${computerScore}`;
+    playerScoreBoard.innerText=`${playerScore}`;
+    computerScoreBoard.innerText=`${computerScore}`;
     roundResult.innerText=""
+    resetButton.style.display = "none";
 }
 function getComputerChoice() {
 let choice = ["Rock", "Paper", "Scissors"];
