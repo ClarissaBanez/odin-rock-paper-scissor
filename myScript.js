@@ -9,11 +9,12 @@ function playRound(e) {
     round ++;
     let playerSelection = e.target.id;
     let computerSelection = getComputerChoice()
-    // if (!playerSelection) return;
     result = getResult(playerSelection, computerSelection);
-    displayResults(playerSelection, computerSelection, resultString);
     scoreUpdate(result);
+    displayResults(playerSelection, computerSelection, resultString);
     checkWinner(playerScore, computerScore);
+
+    // if checkwinner 
 }
 
 function displayResults(playerSelection, computerSelection, resultString){
@@ -26,16 +27,16 @@ function displayResults(playerSelection, computerSelection, resultString){
     roundResult.innerText += `Round ${round}: ${resultString}\n`;
 }
 function scoreUpdate(result){
-    let playerScoreBoard = document.getElementById('playerScore');
-    let computerScoreBoard = document.getElementById('computerScore');
+    playerScoreBoard = document.getElementById('playerScore');
+    computerScoreBoard = document.getElementById('computerScore');
     if (result === "win"){
         playerScore++;
-        playerScoreBoard.innerText=`${playerScore}`;
     }
     else if (result ==="lose"){
         computerScore++;
-        computerScoreBoard.innerText=`${computerScore}`;
     }
+    computerScoreBoard.innerText=`${computerScore}`;
+    playerScoreBoard.innerText=`${playerScore}`;
     return;
 }
     
@@ -62,34 +63,28 @@ function getResult(playerSelection, computerSelection) {
 }
 
 function checkWinner(playerScore, computerScore) {
+    gameResult = document.getElementById('gameResult');
     if (playerScore < computerScore && computerScore === 5) {
+        gameResult.innerText = "You lost the game!";
         console.log("You lost the game!");
+        gameReset();
     }
     else if (playerScore > computerScore && playerScore === 5){
-        console.log("You won the game")
+        gameResult.innerText = "You won the game!"
+        console.log("You won the game");
+        gameReset();
     }
-    return;
+    return false;
 }
 
-function game() {
-    let playerScore = 0
-    let computerScore = 0
-    for (let round = 1; round < 6; round++) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice(); //generate random choice for computer
-        console.log(`Round ${round}, Player: ${playerSelection}, Computer ${computerSelection}`)
-        let result = playRound(playerSelection, computerSelection);
-        if (result === "win") {
-            playerScore++;
-        }
-        else if (result === "lose") {
-            computerScore++;
-        }
-        console.log(`Score: ${playerScore}-${computerScore}`)
-    }
-    getWinner(playerScore, computerScore);
-};
-
+function gameReset(){
+    playerScore = 0;
+    computerScore = 0;
+    round = 0;
+    // playerScoreBoard.innerText=`${playerScore}`;
+    // computerScoreBoard.innerText=`${computerScore}`;
+    roundResult.innerText=""
+}
 function getComputerChoice() {
 let choice = ["Rock", "Paper", "Scissors"];
     let i = Math.floor(Math.random() * 3);
