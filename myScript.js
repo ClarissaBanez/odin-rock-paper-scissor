@@ -10,13 +10,14 @@ function playRound(e) {
     if (playerSelection === '') return;
     result = getResult(playerSelection, computerSelection)
     scoreUpdate(result);
+
     console.log(`${result.toUpperCase()}. Player chooses ${playerSelection}. Computer chooses ${computerSelection}.`);
 
 }
 
 function scoreUpdate(result){
-    playerScoreBoard = document.getElementById('playerScore');
-    computerScoreBoard =document.getElementById('computerScore');
+    let playerScoreBoard = document.getElementById('playerScore');
+    let computerScoreBoard = document.getElementById('computerScore');
     if (result === "win"){
         playerScore++;
         console.log(playerScore, computerScore);
