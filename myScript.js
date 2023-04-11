@@ -66,18 +66,22 @@ function checkWinner(playerScore, computerScore) {
     gameResult = document.getElementById('gameResult');
     resetButton = document.getElementById('resetButton');
     if (playerScore < computerScore && computerScore === 5) {
-        gameResult.innerText = "You lost the game!";
-        resetButton.style.display = "block";
-        buttons.forEach(button => button.style.display="none");
+        gameOver("You lost the game!")
+        
     }
     else if (playerScore > computerScore && playerScore === 5){
-        gameResult.innerText = "You won the game!"
-        resetButton.style.display = "block";
-        buttons.forEach(button => button.style.display="none");
+        gameOver("You won the game!");
     }
     return false;
 }
 
+function gameOver(gameOverMessage){
+    gameResult.innerText = gameOverMessage;
+    resetButton.style.display = "block";
+    playerChoice.innerText = "";
+    computerChoice.innerText = "";
+    buttons.forEach(button => button.style.display="none");
+}
 function gameReset(){
     playerScore = 0;
     computerScore = 0;
