@@ -1,3 +1,5 @@
+//To-Dos: Add clicking animations to buttons.
+
 let playerScore = 0;
 let computerScore = 0;
 let round = 0;
@@ -90,8 +92,7 @@ function gameReset(){
     roundResult.innerText= "";
     gameResult.innerText = "";
     resetButton.style.display = "none";
-    buttons.forEach(button => button.style.display="block");
-    
+    playerInput.forEach(button => button.style.display="block");
 }
 function getComputerChoice() {
 let choice = ["Rock", "Paper", "Scissors"];
