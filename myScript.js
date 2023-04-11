@@ -6,7 +6,6 @@ let round = 0;
 const playerInput = document.querySelectorAll('.playerInput');
 playerInput.forEach(button => button.addEventListener('click', playRound))
 
-
 function playRound(e) {
     round ++;
     let playerSelection = e.target.id;
